@@ -1,0 +1,281 @@
+import type { ElementType } from "react";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Baby,
+  Cookie,
+  Heart,
+  LifeBuoy,
+  Milk,
+  Moon,
+  ShieldCheck,
+} from "lucide-react";
+
+type Ressource = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+type Sujet = {
+  title: string;
+  text: string;
+  icon: ElementType;
+  href: string;
+};
+
+const ressources: Ressource[] = [
+  {
+    title: "Nourri-Source",
+    description:
+      "Fiches d’information, soutien par marraines d’allaitement et ressources québécoises accessibles aux familles.",
+    href: "https://nourri-source.org",
+  },
+  {
+    title: "La Leche League Canada",
+    description:
+      "Groupes de soutien, informations simples et accompagnement pour les familles allaitantes.",
+    href: "https://www.lllc.ca",
+  },
+  {
+    title: "Les fiches d’allaitement de l’INSPQ",
+    description:
+      "Ressources québécoises sur l’allaitement, la santé infantile et la période périnatale.",
+    href: "https://www.inspq.qc.ca/information-perinatale/fiches/allaitement",
+  },
+];
+
+const sujets: Sujet[] = [
+  {
+    title: "Douleur aux mamelons",
+    text: "Si la douleur persiste, s’intensifie ou rend les boires difficiles, une évaluation de la prise du sein peut aider.",
+    icon: Heart,
+    href: "/ressources/mamans/douleur-mamelons",
+  },
+  {
+    title: "Bébé s’endort au sein",
+    text: "On surveille l’éveil, la fréquence des boires, les couches et le poids pour mieux comprendre la situation.",
+    icon: Baby,
+    href: "/ressources/mamans/bebe-somnolent",
+  },
+  {
+    title: "Peur de manquer de lait",
+    text: "Les boires fréquents ne veulent pas toujours dire qu’il manque du lait. Les couches et la croissance sont des repères importants.",
+    icon: Milk,
+    href: "/ressources/mamans/manque-de-lait",
+  },
+  {
+    title: "Galactogogues & mythes",
+    text: "Biscuits d’allaitement, fenugrec, avoine, tisanes et autres méthodes populaires : ce qui peut aider, ce qui est surtout marketing, et quoi valider.",
+    icon: Cookie,
+    href: "/ressources/mamans/galactogogues",
+  },
+  {
+    title: "Besoin de soutien",
+    text: "Demander de l’aide tôt peut éviter que les inquiétudes deviennent trop lourdes.",
+    icon: LifeBuoy,
+    href: "/sos",
+  },
+];
+
+function SujetLink({ sujet }: { sujet: Sujet }) {
+  const Icon = sujet.icon;
+
+  return (
+    <Link
+      href={sujet.href}
+      className="group border-b border-[#A58B71]/25 py-6 transition hover:border-[#AE6965]"
+    >
+      <div className="flex items-start justify-between gap-5">
+        <div className="flex gap-4">
+          <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F9F6F2]">
+            <Icon className="h-5 w-5 text-[#AE6965]" />
+          </div>
+
+          <div>
+            <h2 className="font-[var(--font-title)] text-3xl font-semibold leading-tight text-[#2F2A26]">
+              {sujet.title}
+            </h2>
+
+            <p className="mt-2 max-w-2xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+              {sujet.text}
+            </p>
+
+            <p className="mt-4 inline-flex items-center gap-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-[#AE6965]">
+              Lire la suite
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </p>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+function RessourceLink({ ressource }: { ressource: Ressource }) {
+  return (
+    <Link
+      href={ressource.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-start justify-between gap-4 border-b border-[#A58B71]/25 py-5 transition hover:border-[#AE6965]"
+    >
+      <div>
+        <h3 className="font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26]">
+          {ressource.title}
+        </h3>
+
+        <p className="mt-2 max-w-3xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+          {ressource.description}
+        </p>
+      </div>
+
+      <span className="mt-1 shrink-0 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-[#AE6965]">
+        Ouvrir
+      </span>
+    </Link>
+  );
+}
+
+export default function RessourcesMamansPage() {
+  return (
+    <main className="min-h-screen bg-[#E5DFD6] text-[#2F2A26]">
+      <Navbar />
+
+      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
+        <Link
+          href="/ressources"
+          className="inline-flex items-center gap-2 font-[var(--font-body)] text-sm font-bold text-[#7A816C] transition hover:text-[#AE6965]"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Retour aux ressources
+        </Link>
+
+        <div className="mt-10 grid gap-10 md:grid-cols-[0.95fr_1.05fr] md:items-end">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/25 px-4 py-2">
+              <Heart className="h-4 w-4 text-[#AE6965]" />
+              <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.18em] text-[#AE6965]">
+                Pour les mamans
+              </p>
+            </div>
+
+            <h1 className="mt-5 font-[var(--font-title)] text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+              Des repères doux quand l’allaitement devient flou.
+            </h1>
+          </div>
+
+          <div className="border-l border-[#A58B71]/25 pl-6">
+            <p className="font-[var(--font-body)] text-base leading-8 text-[#5E5A52]">
+              Cette section regroupe des ressources simples pour comprendre, se
+              rassurer, préparer une consultation ou savoir quand demander de
+              l’aide.
+            </p>
+          </div>
+        </div>
+
+        <section className="mt-16 grid gap-10 md:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
+              Questions fréquentes
+            </p>
+
+            <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight">
+              Les sujets qui reviennent souvent à la maison.
+            </h2>
+
+            <p className="mt-5 max-w-md font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+              Chaque page est pensée pour donner des repères simples, sans
+              remplacer une évaluation individualisée quand la situation
+              l’exige.
+            </p>
+          </div>
+
+          <div>
+            {sujets.map((sujet) => (
+              <SujetLink key={sujet.title} sujet={sujet} />
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-16 rounded-[42px] bg-[#7A816C] p-6 text-white shadow-sm md:p-9">
+          <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <ShieldCheck className="h-8 w-8 text-white" />
+
+              <p className="mt-5 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-white/70">
+                Sécurité
+              </p>
+
+              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight">
+                Quand consulter rapidement?
+              </h2>
+            </div>
+
+            <div className="grid gap-3 font-[var(--font-body)] text-sm leading-7 text-white/88">
+              <p>• Bébé est difficile à réveiller.</p>
+              <p>• Bébé boit très peu ou refuse plusieurs boires.</p>
+              <p>• Les couches mouillées sont insuffisantes.</p>
+              <p>• Maman a fièvre, frissons ou douleur importante au sein.</p>
+              <p>• Ton instinct te dit que quelque chose ne va pas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-16 rounded-[42px] bg-[#F9F6F2] p-6 shadow-sm md:p-9">
+          <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <Moon className="h-8 w-8 text-[#AE6965]" />
+
+              <p className="mt-5 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
+                À garder en tête
+              </p>
+
+              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight">
+                Tu n’as pas besoin de tout gérer seule.
+              </h2>
+            </div>
+
+            <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+              Les inquiétudes d’allaitement peuvent devenir très lourdes
+              rapidement, surtout quand on manque de sommeil. Demander de l’aide
+              tôt peut éviter que la douleur, l’anxiété ou les doutes prennent
+              toute la place.
+            </p>
+          </div>
+
+          <Link
+            href="/sos"
+            className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-3 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C]"
+          >
+            Faire un SOS allaitement
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </section>
+
+        <section className="mt-16">
+          <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#A58B71]">
+            Ressources utiles
+          </p>
+
+          <div className="mt-5 grid gap-3">
+            {ressources.map((ressource) => (
+              <RessourceLink key={ressource.title} ressource={ressource} />
+            ))}
+          </div>
+        </section>
+
+        <div className="mt-12 border-t border-[#A58B71]/25 pt-6">
+          <p className="max-w-4xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+            Important : les ressources présentées ici sont éducatives. Elles ne
+            remplacent pas une évaluation personnalisée par une IBCLC, une
+            sage-femme, une infirmière, un médecin ou une autre professionnelle
+            de la santé.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}
