@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import { supabase } from "@/lib/supabaseClient";
 import {
+  Archive,
   Calendar,
   FileText,
   Heart,
-  Trash2,
-  Archive,
   Sparkles,
+  Trash2,
 } from "lucide-react";
 
 type Suivi = {
@@ -53,6 +53,12 @@ export default function MesSuivisPage() {
   }, []);
 
   const supprimerSuivi = async (id: string) => {
+    const confirmation = window.confirm(
+      "Veux-tu vraiment supprimer ce suivi?"
+    );
+
+    if (!confirmation) return;
+
     const { error } = await supabase.from("sos_suivis").delete().eq("id", id);
 
     if (error) {
@@ -77,22 +83,22 @@ export default function MesSuivisPage() {
     <main className="min-h-screen bg-[#E5DFD6] text-[#2F2A26]">
       <Navbar />
 
-      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
-        <div className="grid gap-10 md:grid-cols-[0.95fr_1.05fr] md:items-end">
+      <section className="mx-auto max-w-6xl px-5 py-10 md:px-8 md:py-20">
+        <div className="grid gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-end">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/25 px-4 py-2">
               <Archive className="h-4 w-4 text-[#AE6965]" />
-              <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.18em] text-[#AE6965]">
+              <p className="font-[var(--font-body)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#AE6965]">
                 Mes suivis
               </p>
             </div>
 
-            <h1 className="mt-5 font-[var(--font-title)] text-5xl font-semibold leading-[0.98] tracking-tight text-[#2F2A26] md:text-7xl">
+            <h1 className="mt-5 max-w-2xl font-[var(--font-title)] text-5xl font-semibold leading-[0.98] tracking-tight text-[#2F2A26] md:text-7xl">
               Tes repères sauvegardés.
             </h1>
           </div>
 
-          <div className="border-l border-[#A58B71]/25 pl-6">
+          <div className="border-t border-[#A58B71]/25 pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
             <p className="font-[var(--font-body)] text-base leading-8 text-[#5E5A52]">
               Retrouve ici les réponses SOS sauvegardées dans ton profil pour
               suivre ton parcours, préparer une consultation ou revenir à tête
@@ -102,12 +108,17 @@ export default function MesSuivisPage() {
         </div>
 
         {loading ? (
-          <p className="mt-16 font-[var(--font-body)] text-sm text-[#5E5A52]">
-            Chargement des suivis...
-          </p>
+          <section className="mt-12 rounded-[36px] bg-[#F9F6F2] p-6 shadow-sm md:mt-16 md:rounded-[42px] md:p-10">
+            <div className="flex items-center gap-3">
+              <Sparkles className="h-5 w-5 text-[#AE6965]" />
+              <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                Chargement des suivis...
+              </p>
+            </div>
+          </section>
         ) : suivis.length === 0 ? (
-          <section className="mt-16 rounded-[42px] bg-[#F9F6F2] p-6 shadow-sm md:p-10">
-            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr] md:items-center">
+          <section className="mt-12 rounded-[36px] bg-[#F9F6F2] p-6 shadow-sm md:mt-16 md:rounded-[42px] md:p-10">
+            <div className="grid gap-6 md:grid-cols-[0.75fr_1.25fr] md:items-center">
               <div>
                 <Heart className="h-8 w-8 text-[#AE6965]" />
 
@@ -115,58 +126,73 @@ export default function MesSuivisPage() {
                   Aucun suivi
                 </p>
 
-                <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight text-[#2F2A26]">
+                <h2 className="mt-3 font-[var(--font-title)] text-3xl font-semibold leading-tight text-[#2F2A26] md:text-4xl">
                   Rien de sauvegardé pour l’instant.
                 </h2>
               </div>
 
               <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
                 Quand tu généreras un SOS allaitement, tu pourras le sauvegarder
-                ici pour le relire plus tard.
+                ici pour le relire plus tard. C’est pratique pour garder une
+                trace de tes questions et de tes repères.
               </p>
             </div>
           </section>
         ) : (
-          <section className="mt-16 grid gap-10 md:grid-cols-[0.7fr_1.3fr]">
+          <section className="mt-12 grid gap-10 md:mt-16 md:grid-cols-[0.7fr_1.3fr]">
             <div>
               <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
                 Historique
               </p>
 
-              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight">
+              <h2 className="mt-3 max-w-md font-[var(--font-title)] text-4xl font-semibold leading-tight">
                 Les repères que tu as voulu garder.
               </h2>
+
+              <p className="mt-5 max-w-md font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                Tu peux les relire, les comparer avec ce que tu observes
+                maintenant ou les utiliser pour mieux expliquer la situation à
+                une professionnelle.
+              </p>
             </div>
 
-            <div className="grid gap-8">
+            <div className="grid gap-6 md:gap-8">
               {suivis.map((suivi) => (
                 <article
                   key={suivi.id}
-                  className="border-b border-[#A58B71]/25 pb-8"
+                  className="rounded-[34px] bg-[#F9F6F2] p-5 shadow-sm md:rounded-[42px] md:p-7"
                 >
                   <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                    <div>
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="inline-flex items-center gap-2 rounded-full bg-[#7A816C]/10 px-3 py-1 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-[#7A816C]">
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-flex items-center gap-2 rounded-full bg-[#7A816C]/10 px-3 py-1 font-[var(--font-body)] text-[11px] font-bold uppercase tracking-[0.14em] text-[#7A816C]">
                           <FileText className="h-3.5 w-3.5" />
                           SOS allaitement
                         </span>
 
-                        <span className="inline-flex items-center gap-2 font-[var(--font-body)] text-sm text-[#6F6258]">
-                          <Calendar className="h-4 w-4" />
+                        <span className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/18 px-3 py-1 font-[var(--font-body)] text-xs text-[#6F6258]">
+                          <Calendar className="h-3.5 w-3.5" />
                           {formatDate(suivi.created_at)}
                         </span>
                       </div>
 
-                      <h2 className="mt-4 font-[var(--font-title)] text-3xl font-semibold leading-tight text-[#2F2A26]">
+                      <h2 className="mt-4 font-[var(--font-title)] text-3xl font-semibold leading-tight text-[#2F2A26] md:text-4xl">
                         {suivi.concern || "Suivi allaitement"}
                       </h2>
 
-                      {suivi.baby_age && (
-                        <p className="mt-2 font-[var(--font-body)] text-sm text-[#6F6258]">
-                          Âge du bébé : {suivi.baby_age}
-                        </p>
-                      )}
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {suivi.baby_age && (
+                          <span className="rounded-full bg-[#E5DFD6] px-3 py-1 font-[var(--font-body)] text-xs font-bold text-[#6F6258]">
+                            Âge du bébé : {suivi.baby_age}
+                          </span>
+                        )}
+
+                        {suivi.feeding_type && (
+                          <span className="rounded-full bg-[#E5DFD6] px-3 py-1 font-[var(--font-body)] text-xs font-bold text-[#6F6258]">
+                            {suivi.feeding_type}
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     <button
@@ -179,7 +205,7 @@ export default function MesSuivisPage() {
                     </button>
                   </div>
 
-                  <div className="mt-6 rounded-[34px] bg-[#F9F6F2] p-5 shadow-sm md:p-7">
+                  <div className="mt-6 border-t border-[#A58B71]/20 pt-5">
                     <div className="mb-4 flex items-center gap-2">
                       <Sparkles className="h-4 w-4 text-[#AE6965]" />
                       <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.18em] text-[#AE6965]">
@@ -187,7 +213,7 @@ export default function MesSuivisPage() {
                       </p>
                     </div>
 
-                    <div className="whitespace-pre-wrap font-[var(--font-body)] text-[15px] leading-8 text-[#4F4943]">
+                    <div className="max-h-[520px] overflow-y-auto whitespace-pre-wrap rounded-[28px] bg-[#FBF8F3] p-4 font-[var(--font-body)] text-[15px] leading-8 text-[#4F4943] md:p-6">
                       {suivi.response}
                     </div>
                   </div>

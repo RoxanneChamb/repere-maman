@@ -1,4 +1,5 @@
 import type { ElementType } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import {
@@ -86,28 +87,26 @@ function SujetLink({ sujet }: { sujet: Sujet }) {
   return (
     <Link
       href={sujet.href}
-      className="group border-b border-[#A58B71]/25 py-6 transition hover:border-[#AE6965]"
+      className="group block border-b border-[#A58B71]/25 py-5 transition hover:border-[#AE6965] md:py-6"
     >
-      <div className="flex items-start justify-between gap-5">
-        <div className="flex gap-4">
-          <div className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F9F6F2]">
-            <Icon className="h-5 w-5 text-[#AE6965]" />
-          </div>
+      <div className="grid grid-cols-[40px_1fr] items-start gap-3 md:grid-cols-[44px_1fr] md:gap-4">
+        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F9F6F2] md:h-11 md:w-11">
+          <Icon className="h-5 w-5 text-[#AE6965]" />
+        </div>
 
-          <div>
-            <h2 className="font-[var(--font-title)] text-3xl font-semibold leading-tight text-[#2F2A26]">
-              {sujet.title}
-            </h2>
+        <div className="min-w-0">
+          <h2 className="font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26] md:text-3xl">
+            {sujet.title}
+          </h2>
 
-            <p className="mt-2 max-w-2xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-              {sujet.text}
-            </p>
+          <p className="mt-2 max-w-2xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+            {sujet.text}
+          </p>
 
-            <p className="mt-4 inline-flex items-center gap-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-[#AE6965]">
-              Lire la suite
-              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-            </p>
-          </div>
+          <p className="mt-4 inline-flex items-center gap-2 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-[#AE6965]">
+            Lire la suite
+            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+          </p>
         </div>
       </div>
     </Link>
@@ -120,21 +119,23 @@ function RessourceLink({ ressource }: { ressource: Ressource }) {
       href={ressource.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-start justify-between gap-4 border-b border-[#A58B71]/25 py-5 transition hover:border-[#AE6965]"
+      className="group block border-b border-[#A58B71]/25 py-5 transition hover:border-[#AE6965]"
     >
-      <div>
-        <h3 className="font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26]">
-          {ressource.title}
-        </h3>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+        <div className="min-w-0">
+          <h3 className="font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26]">
+            {ressource.title}
+          </h3>
 
-        <p className="mt-2 max-w-3xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-          {ressource.description}
-        </p>
+          <p className="mt-2 max-w-3xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+            {ressource.description}
+          </p>
+        </div>
+
+        <span className="inline-flex w-fit shrink-0 rounded-full bg-[#D1A9A5]/20 px-3 py-1 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-[#AE6965]">
+          Ouvrir
+        </span>
       </div>
-
-      <span className="mt-1 shrink-0 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-[#AE6965]">
-        Ouvrir
-      </span>
     </Link>
   );
 }
@@ -144,7 +145,7 @@ export default function RessourcesMamansPage() {
     <main className="min-h-screen bg-[#E5DFD6] text-[#2F2A26]">
       <Navbar />
 
-      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-20">
+      <section className="mx-auto max-w-6xl px-5 py-9 md:px-8 md:py-20">
         <Link
           href="/ressources"
           className="inline-flex items-center gap-2 font-[var(--font-body)] text-sm font-bold text-[#7A816C] transition hover:text-[#AE6965]"
@@ -153,36 +154,53 @@ export default function RessourcesMamansPage() {
           Retour aux ressources
         </Link>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-[0.95fr_1.05fr] md:items-end">
+        <div className="mt-8 grid gap-8 md:mt-10 md:grid-cols-[0.95fr_1.05fr] md:items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/25 px-4 py-2">
               <Heart className="h-4 w-4 text-[#AE6965]" />
-              <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.18em] text-[#AE6965]">
+              <p className="font-[var(--font-body)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#AE6965] md:text-xs">
                 Pour les mamans
               </p>
             </div>
 
-            <h1 className="mt-5 font-[var(--font-title)] text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+            <h1 className="mt-5 max-w-3xl font-[var(--font-title)] text-[44px] font-semibold leading-[0.98] tracking-tight sm:text-5xl md:text-7xl">
               Des repères doux quand l’allaitement devient flou.
             </h1>
-          </div>
 
-          <div className="border-l border-[#A58B71]/25 pl-6">
-            <p className="font-[var(--font-body)] text-base leading-8 text-[#5E5A52]">
+            <p className="mt-5 max-w-xl font-[var(--font-body)] text-base leading-8 text-[#5E5A52]">
               Cette section regroupe des ressources simples pour comprendre, se
               rassurer, préparer une consultation ou savoir quand demander de
               l’aide.
             </p>
+
+            <Link
+              href="/sos"
+              className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-4 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C] sm:w-fit"
+            >
+              Faire un SOS allaitement
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="overflow-hidden rounded-[30px] border border-[#D1A9A5]/40 bg-[#F9F6F2] p-2 shadow-sm md:rounded-[42px] md:p-3">
+            <Image
+              src="/ressources-mamans-allaitement.png"
+              alt="Maman allaitant son bébé"
+              width={900}
+              height={1200}
+              priority
+              className="h-[310px] w-full rounded-[24px] object-cover object-center sm:h-[420px] md:h-[620px] md:rounded-[34px]"
+            />
           </div>
         </div>
 
-        <section className="mt-16 grid gap-10 md:grid-cols-[0.7fr_1.3fr]">
+        <section className="mt-12 grid gap-8 md:mt-16 md:grid-cols-[0.7fr_1.3fr] md:gap-10">
           <div>
             <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
               Questions fréquentes
             </p>
 
-            <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight">
+            <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
               Les sujets qui reviennent souvent à la maison.
             </h2>
 
@@ -200,8 +218,8 @@ export default function RessourcesMamansPage() {
           </div>
         </section>
 
-        <section className="mt-16 rounded-[42px] bg-[#7A816C] p-6 text-white shadow-sm md:p-9">
-          <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+        <section className="mt-12 rounded-[30px] bg-[#7A816C] p-5 text-white shadow-sm md:mt-16 md:rounded-[42px] md:p-9">
+          <div className="grid gap-7 md:grid-cols-[0.75fr_1.25fr] md:gap-8">
             <div>
               <ShieldCheck className="h-8 w-8 text-white" />
 
@@ -209,7 +227,7 @@ export default function RessourcesMamansPage() {
                 Sécurité
               </p>
 
-              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight">
+              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
                 Quand consulter rapidement?
               </h2>
             </div>
@@ -224,8 +242,8 @@ export default function RessourcesMamansPage() {
           </div>
         </section>
 
-        <section className="mt-16 rounded-[42px] bg-[#F9F6F2] p-6 shadow-sm md:p-9">
-          <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+        <section className="mt-12 rounded-[30px] bg-[#F9F6F2] p-5 shadow-sm md:mt-16 md:rounded-[42px] md:p-9">
+          <div className="grid gap-7 md:grid-cols-[0.75fr_1.25fr] md:gap-8">
             <div>
               <Moon className="h-8 w-8 text-[#AE6965]" />
 
@@ -233,7 +251,7 @@ export default function RessourcesMamansPage() {
                 À garder en tête
               </p>
 
-              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight">
+              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
                 Tu n’as pas besoin de tout gérer seule.
               </h2>
             </div>
@@ -248,14 +266,14 @@ export default function RessourcesMamansPage() {
 
           <Link
             href="/sos"
-            className="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-3 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C]"
+            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-4 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C] sm:w-fit"
           >
             Faire un SOS allaitement
             <ArrowRight className="h-4 w-4" />
           </Link>
         </section>
 
-        <section className="mt-16">
+        <section className="mt-12 md:mt-16">
           <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#A58B71]">
             Ressources utiles
           </p>
@@ -267,7 +285,7 @@ export default function RessourcesMamansPage() {
           </div>
         </section>
 
-        <div className="mt-12 border-t border-[#A58B71]/25 pt-6">
+        <div className="mt-10 border-t border-[#A58B71]/25 pt-6 md:mt-12">
           <p className="max-w-4xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
             Important : les ressources présentées ici sont éducatives. Elles ne
             remplacent pas une évaluation personnalisée par une IBCLC, une
