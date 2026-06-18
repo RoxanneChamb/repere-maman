@@ -86,19 +86,19 @@ function ThemeLink({ theme }: { theme: Theme }) {
   return (
     <a
       href={theme.href}
-      className="group block cursor-pointer rounded-[28px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-[#7A816C]/40 hover:shadow-md md:p-6"
+      className="group block rounded-[28px] border border-[#A58B71]/15 bg-[#F9F6F2] p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-[#7A816C]/35 hover:shadow-md md:p-6"
     >
-      <div className="grid grid-cols-[42px_1fr] items-start gap-3 md:grid-cols-[46px_1fr] md:gap-4">
+      <div className="grid grid-cols-[42px_1fr] items-start gap-4">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#7A816C]/12 md:h-11 md:w-11">
           <Icon className="h-5 w-5 text-[#7A816C]" />
         </div>
 
         <div className="min-w-0">
-          <h2 className="font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26] md:text-3xl">
+          <h3 className="font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26] md:text-[30px]">
             {theme.title}
-          </h2>
+          </h3>
 
-          <p className="mt-2 max-w-2xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+          <p className="mt-2 font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
             {theme.text}
           </p>
 
@@ -118,10 +118,10 @@ function ReferenceLink({ reference }: { reference: Reference }) {
       href={reference.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block cursor-pointer rounded-[28px] border border-white/15 bg-white/10 p-5 transition hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/14 md:p-6"
+      className="group block rounded-[26px] border border-white/15 bg-white/10 p-5 transition hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/14"
     >
-      <div className="grid grid-cols-[42px_1fr] items-start gap-3 md:grid-cols-[46px_1fr] md:gap-4">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/16 md:h-11 md:w-11">
+      <div className="grid grid-cols-[40px_1fr] items-start gap-4">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/16">
           <FileText className="h-5 w-5 text-white" />
         </div>
 
@@ -130,7 +130,7 @@ function ReferenceLink({ reference }: { reference: Reference }) {
             {reference.title}
           </h3>
 
-          <p className="mt-2 max-w-2xl font-[var(--font-body)] text-sm leading-7 text-white/78">
+          <p className="mt-2 font-[var(--font-body)] text-sm leading-7 text-white/78">
             {reference.description}
           </p>
 
@@ -158,41 +158,49 @@ export default function RessourcesProfessionnellesPage() {
           Retour aux ressources
         </Link>
 
-        <div className="mt-8 grid gap-8 md:mt-10 md:grid-cols-[0.95fr_1.05fr] md:items-end md:gap-10">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/22 px-4 py-2">
-              <Hospital className="h-4 w-4 text-[#AE6965]" />
-              <p className="font-[var(--font-body)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#AE6965] md:text-xs">
-                Professionnelles de la santé
-              </p>
-            </div>
+        <div className="mt-8 overflow-hidden rounded-[36px] border border-[#A58B71]/15 bg-[#F9F6F2]/70 p-5 shadow-sm md:mt-10 md:rounded-[48px] md:p-8">
+  <div className="grid gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center md:gap-10">
+    <div className="md:p-2">
+      <div className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/22 px-4 py-2">
+        <Hospital className="h-4 w-4 text-[#AE6965]" />
+        <p className="font-[var(--font-body)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#AE6965] md:text-xs">
+          Professionnelles de la santé
+        </p>
+      </div>
 
-            <h1 className="mt-5 max-w-3xl font-[var(--font-title)] text-[44px] font-semibold leading-[0.98] tracking-tight md:text-7xl">
-              Des références pour soutenir le jugement clinique.
-            </h1>
-          </div>
+      <h1 className="mt-5 max-w-3xl font-[var(--font-title)] text-[42px] font-semibold leading-[0.98] tracking-tight text-[#2F2A26] sm:text-5xl md:text-7xl">
+        Des références pour soutenir le jugement clinique.
+      </h1>
 
-          <div className="border-t border-[#A58B71]/25 pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
-            <p className="font-[var(--font-body)] text-base leading-8 text-[#5E5A52]">
-              Cette section regroupe des ressources plus cliniques pour soutenir
-              l’éducation, l’orientation, la préparation d’un suivi et le
-              raisonnement professionnel.
-            </p>
-          </div>
-        </div>
+      <p className="mt-5 max-w-xl font-[var(--font-body)] text-base leading-8 text-[#5E5A52]">
+        Une sélection de ressources cliniques pour soutenir l’éducation,
+        l’orientation, la préparation d’un suivi et le raisonnement
+        professionnel en allaitement.
+      </p>
+    </div>
 
-        <section className="mt-12 grid gap-8 md:mt-16 md:grid-cols-[0.7fr_1.3fr] md:gap-10">
-          <div>
+    <div className="overflow-hidden rounded-[30px] border border-[#D1A9A5]/35 bg-[#E5DFD6] p-2 shadow-sm md:rounded-[38px]">
+      <img
+        src="/ressources-professionnelles-clinique.png?v=999"
+        alt="Professionnelle de la santé auprès d’un nouveau-né"
+        className="block h-[300px] w-full rounded-[24px] object-cover object-center sm:h-[400px] md:h-[520px] md:rounded-[30px]"
+      />
+    </div>
+  </div>
+</div>
+
+        <section className="mt-10 grid gap-6 md:mt-12 md:grid-cols-[0.75fr_1.25fr] md:gap-8">
+          <div className="rounded-[34px] border border-[#A58B71]/15 bg-[#EDE7DD] p-5 md:rounded-[42px] md:p-8">
             <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
               Thèmes cliniques
             </p>
 
-            <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
+            <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight text-[#2F2A26] md:text-5xl">
               Les repères utiles pour évaluer et orienter.
             </h2>
 
             <p className="mt-5 max-w-md font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-              Chaque page vise à soutenir le raisonnement clinique sans
+              Chaque page vise à soutenir le raisonnement clinique, sans
               remplacer les protocoles locaux, l’évaluation individualisée ou le
               jugement professionnel.
             </p>
@@ -205,11 +213,11 @@ export default function RessourcesProfessionnellesPage() {
           </div>
         </section>
 
-        <section className="mt-12 rounded-[34px] border border-[#7A816C]/18 bg-[#F9F6F2] p-5 shadow-sm md:mt-16 md:rounded-[42px] md:p-8">
+        <section className="mt-10 rounded-[34px] border border-[#A58B71]/15 bg-[#F9F6F2] p-5 shadow-sm md:mt-12 md:rounded-[42px] md:p-8">
           <div className="grid gap-7 md:grid-cols-[0.75fr_1.25fr] md:gap-8">
             <div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#7A816C]/12 md:h-12 md:w-12">
-                <ShieldCheck className="h-5 w-5 text-[#7A816C] md:h-6 md:w-6" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#7A816C]/12">
+                <ShieldCheck className="h-5 w-5 text-[#7A816C]" />
               </div>
 
               <p className="mt-5 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#7A816C]">
@@ -221,21 +229,23 @@ export default function RessourcesProfessionnellesPage() {
               </h2>
             </div>
 
-            <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-              Les références présentées ici peuvent soutenir l’analyse, mais
-              l’évaluation clinique doit toujours tenir compte du contexte, de
-              l’âge du bébé, du poids, des boires, des couches, de l’état
-              général, de la douleur, des signes systémiques et des protocoles
-              locaux.
-            </p>
+            <div className="rounded-[28px] bg-[#E5DFD6]/55 p-5">
+              <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                Les références présentées ici peuvent soutenir l’analyse, mais
+                l’évaluation clinique doit toujours tenir compte du contexte, de
+                l’âge du bébé, du poids, des boires, des couches, de l’état
+                général, de la douleur, des signes systémiques et des protocoles
+                locaux.
+              </p>
+            </div>
           </div>
         </section>
 
-        <section className="mt-12 rounded-[34px] bg-[#7A816C] p-5 text-white shadow-sm md:mt-16 md:rounded-[42px] md:p-8">
-          <div className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:gap-10">
+        <section className="mt-10 rounded-[34px] bg-[#7A816C] p-5 text-white shadow-sm md:mt-12 md:rounded-[42px] md:p-8">
+          <div className="grid gap-8 md:grid-cols-[0.72fr_1.28fr] md:gap-10">
             <div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/14 md:h-12 md:w-12">
-                <BookOpen className="h-5 w-5 text-white md:h-6 md:w-6" />
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/14">
+                <BookOpen className="h-5 w-5 text-white" />
               </div>
 
               <p className="mt-5 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-white/70">
@@ -247,8 +257,8 @@ export default function RessourcesProfessionnellesPage() {
               </h2>
 
               <p className="mt-5 max-w-md font-[var(--font-body)] text-sm leading-7 text-white/78">
-                Des liens externes utiles pour vérifier, nuancer et approfondir
-                une recommandation clinique.
+                Des liens externes pour vérifier, nuancer et approfondir une
+                recommandation clinique.
               </p>
             </div>
 
