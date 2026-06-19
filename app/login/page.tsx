@@ -11,7 +11,9 @@ export default function LoginPage() {
   const [message, setMessage] = useState("");
 
   const handleLogin = async () => {
-    if (!email) {
+    const emailClean = email.trim().toLowerCase();
+
+    if (!emailClean) {
       setMessage("Entre ton courriel.");
       return;
     }
@@ -19,22 +21,30 @@ export default function LoginPage() {
     setLoading(true);
     setMessage("");
 
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
-      options: {
-        emailRedirectTo: `${window.location.origin}/mes-suivis`,
-      },
-    });
+    try {
+      const { error } = await supabase.auth.signInWithOtp({
+        email: emailClean,
+        options: {
+          emailRedirectTo: "https://www.reperemaman.ca/mes-suivis",
+          shouldCreateUser: true,
+        },
+      });
 
-    setLoading(false);
+      if (error) {
+        console.error("ERREUR SUPABASE MAGIC LINK:", error);
+        setMessage(`Erreur : ${error.message}`);
+        return;
+      }
 
-    if (error) {
-      console.error(error);
-      setMessage("Erreur lors de l’envoi du lien de connexion.");
-      return;
+      setMessage("Lien de connexion envoyé. Vérifie tes courriels.");
+    } catch (error) {
+      console.error("ERREUR INATTENDUE MAGIC LINK:", error);
+      setMessage(
+        "Erreur lors de l’envoi du lien de connexion. Réessaie dans quelques minutes."
+      );
+    } finally {
+      setLoading(false);
     }
-
-    setMessage("Lien de connexion envoyé. Vérifie tes courriels.");
   };
 
   return (
@@ -103,14 +113,15 @@ export default function LoginPage() {
                   placeholder="toncourriel@exemple.com"
                   autoComplete="email"
                   inputMode="email"
-                  className="w-full rounded-full border border-[#D1A9A5]/70 bg-[#FDFBF8] px-5 py-4 font-[var(--font-body)] text-base text-[#3F342D] outline-none transition placeholder:text-[#A58B71]/70 focus:border-[#7A816C]"
+                  disabled={loading}
+                  className="w-full rounded-full border border-[#D1A9A5]/70 bg-[#FDFBF8] px-5 py-4 font-[var(--font-body)] text-base text-[#3F342D] outline-none transition placeholder:text-[#A58B71]/70 focus:border-[#7A816C] disabled:opacity-60"
                 />
               </label>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-4 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C] disabled:opacity-60"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-4 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <LogIn className="h-4 w-4" />
                 {loading ? "Envoi..." : "Envoyer le lien"}
