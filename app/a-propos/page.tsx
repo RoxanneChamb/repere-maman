@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import {
   ArrowRight,
   Heart,
@@ -13,8 +12,6 @@ import {
 export default function AProposPage() {
   return (
     <main className="min-h-screen bg-[#E5DFD6] text-[#2F2A26]">
-      <Navbar />
-
       <section className="mx-auto max-w-6xl px-5 py-9 md:px-8 md:py-20">
         <div className="grid gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center md:gap-12">
           <div>
@@ -25,7 +22,7 @@ export default function AProposPage() {
               </p>
             </div>
 
-            <h1 className="mt-5 max-w-3xl font-[var(--font-title)] text-[44px] font-semibold leading-[0.98] tracking-tight md:text-7xl">
+            <h1 className="mt-5 max-w-3xl font-[var(--font-title)] text-[42px] font-semibold leading-[0.98] tracking-tight md:text-7xl">
               Un repère doux, fiable et humain pour l’allaitement.
             </h1>
 
@@ -64,8 +61,8 @@ export default function AProposPage() {
                 </h2>
 
                 <p className="mt-3 font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-                  L’objectif est de simplifier l’information, diminuer
-                  l’anxiété et aider à mieux comprendre les prochaines étapes.
+                  L’objectif est de simplifier l’information, diminuer l’anxiété
+                  et aider à mieux comprendre les prochaines étapes.
                 </p>
               </div>
 

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
-import Navbar from "@/components/Navbar";
 import { Heart, LogIn, Mail, ShieldCheck } from "lucide-react";
 
 export default function LoginPage() {
@@ -48,44 +47,46 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#E5DFD6] text-[#2F2A26]">
-      <Navbar />
+    <main className="min-h-screen overflow-hidden bg-[#E5DFD6] text-[#2F2A26]">
+      <section className="relative mx-auto flex min-h-[calc(100vh-88px)] max-w-6xl items-center px-5 py-8 md:px-8 md:py-20">
+        <div className="pointer-events-none absolute -right-32 top-12 h-72 w-72 rounded-full bg-[#D1A9A5]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-32 bottom-12 h-72 w-72 rounded-full bg-[#7A816C]/15 blur-3xl" />
 
-      <section className="mx-auto flex min-h-[calc(100vh-88px)] max-w-6xl items-center px-5 py-10 md:px-8 md:py-20">
-        <div className="grid w-full gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+        <div className="relative grid w-full gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-10">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/25 px-4 py-2">
               <Heart className="h-4 w-4 text-[#AE6965]" />
+
               <p className="font-[var(--font-body)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#AE6965]">
                 Connexion
               </p>
             </div>
 
-            <h1 className="mt-5 max-w-xl font-[var(--font-title)] text-5xl font-semibold leading-[0.98] tracking-tight md:text-7xl">
+            <h1 className="mt-5 max-w-xl font-[var(--font-title)] text-[42px] font-semibold leading-[0.98] tracking-tight text-[#2F2A26] sm:text-6xl md:text-7xl">
               Ton espace Repère Maman.
             </h1>
 
-            <p className="mt-5 max-w-md font-[var(--font-body)] text-base leading-8 text-[#5E5A52] md:text-lg">
+            <p className="mt-5 max-w-md font-[var(--font-body)] text-[16px] leading-8 text-[#5E5A52] md:text-lg">
               Connecte-toi pour sauvegarder tes réponses SOS, les retrouver plus
               tard et suivre ton parcours d’allaitement.
             </p>
 
-            <div className="mt-7 flex gap-3 border-t border-[#A58B71]/25 pt-5 md:max-w-md">
-              <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-[#7A816C]" />
+            <div className="mt-6 rounded-[28px] border border-[#A58B71]/20 bg-[#F9F6F2]/60 p-4 shadow-sm backdrop-blur md:mt-7 md:flex md:gap-3 md:border-t md:bg-transparent md:p-0 md:pt-5 md:shadow-none">
+              <ShieldCheck className="h-5 w-5 shrink-0 text-[#7A816C] md:mt-1" />
 
-              <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+              <p className="mt-3 font-[var(--font-body)] text-sm leading-7 text-[#5E5A52] md:mt-0">
                 Aucun mot de passe à retenir. Tu reçois simplement un lien
                 magique par courriel.
               </p>
             </div>
           </div>
 
-          <div className="rounded-[36px] bg-[#F9F6F2] p-5 shadow-sm md:rounded-[42px] md:p-9">
+          <div className="rounded-[32px] border border-[#A58B71]/15 bg-[#F9F6F2] p-5 shadow-sm md:rounded-[42px] md:p-9">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#D1A9A5]/25 md:h-14 md:w-14">
               <Mail className="h-6 w-6 text-[#AE6965] md:h-7 md:w-7" />
             </div>
 
-            <h2 className="mt-5 font-[var(--font-title)] text-3xl font-semibold leading-tight md:text-4xl">
+            <h2 className="mt-5 font-[var(--font-title)] text-[2rem] font-semibold leading-tight text-[#2F2A26] md:text-4xl">
               Recevoir un lien de connexion
             </h2>
 
@@ -95,7 +96,7 @@ export default function LoginPage() {
             </p>
 
             <form
-              className="mt-7 grid gap-4"
+              className="mt-6 grid gap-4 md:mt-7"
               onSubmit={(e) => {
                 e.preventDefault();
                 handleLogin();
@@ -121,7 +122,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-4 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C] disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-4 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-[#68705C] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <LogIn className="h-4 w-4" />
                 {loading ? "Envoi..." : "Envoyer le lien"}
