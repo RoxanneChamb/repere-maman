@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
 import {
   ArrowLeft,
   ArrowRight,
@@ -128,294 +127,301 @@ const sources = [
 
 export default function TransfertLaitPage() {
   return (
-    <main className="min-h-screen bg-[#E5DFD6] text-[#2F2A26]">
-      <Navbar />
+    <main className="min-h-screen overflow-hidden bg-[#E5DFD6] text-[#2F2A26]">
+      <section className="relative mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-20">
+        <div className="pointer-events-none absolute -right-32 top-12 h-72 w-72 rounded-full bg-[#D1A9A5]/25 blur-3xl" />
+        <div className="pointer-events-none absolute -left-32 bottom-12 h-72 w-72 rounded-full bg-[#7A816C]/15 blur-3xl" />
 
-      <section className="mx-auto max-w-6xl px-5 py-9 md:px-8 md:py-20">
-        <Link
-          href="/ressources/professionnelles"
-          className="inline-flex items-center gap-2 font-[var(--font-body)] text-sm font-bold text-[#7A816C] transition hover:text-[#AE6965]"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Retour aux ressources professionnelles
-        </Link>
+        <div className="relative">
+          <Link
+            href="/ressources/professionnelles"
+            className="inline-flex items-center gap-2 font-[var(--font-body)] text-sm font-bold text-[#7A816C] transition hover:text-[#AE6965]"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Retour aux ressources professionnelles
+          </Link>
 
-        <div className="mt-8 grid gap-8 md:mt-10 md:grid-cols-[0.95fr_1.05fr] md:items-end md:gap-10">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/22 px-4 py-2">
-              <Stethoscope className="h-4 w-4 text-[#AE6965]" />
-              <p className="font-[var(--font-body)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#AE6965] md:text-xs">
-                Ressource professionnelle
-              </p>
+          <div className="mt-7 grid gap-6 md:mt-10 md:grid-cols-[0.95fr_1.05fr] md:items-end md:gap-10">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#D1A9A5]/22 px-4 py-2">
+                <Stethoscope className="h-4 w-4 text-[#AE6965]" />
+
+                <p className="font-[var(--font-body)] text-[11px] font-bold uppercase tracking-[0.18em] text-[#AE6965] md:text-xs">
+                  Ressource professionnelle
+                </p>
+              </div>
+
+              <h1 className="mt-5 max-w-3xl font-[var(--font-title)] text-[42px] font-semibold leading-[0.98] tracking-tight text-[#2F2A26] sm:text-5xl md:text-7xl">
+                Transfert de lait
+              </h1>
             </div>
 
-            <h1 className="mt-5 max-w-3xl font-[var(--font-title)] text-[44px] font-semibold leading-[0.98] tracking-tight md:text-7xl">
-              Transfert de lait
-            </h1>
+            <div className="rounded-[28px] border border-[#A58B71]/20 bg-[#F9F6F2]/60 p-4 shadow-sm backdrop-blur md:border-l md:border-t-0 md:bg-transparent md:p-0 md:pl-6 md:shadow-none">
+              <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52] md:text-base md:leading-8">
+                Une page pour soutenir l’observation d’un boire, l’analyse des
+                couches, du poids, de l’état général et l’orientation vers un plan
+                individualisé quand l’apport du bébé est incertain.
+              </p>
+            </div>
           </div>
 
-          <div className="border-t border-[#A58B71]/25 pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
-            <p className="font-[var(--font-body)] text-base leading-8 text-[#5E5A52]">
-              Une page pour soutenir l’observation d’un boire, l’analyse des
-              couches, du poids, de l’état général et l’orientation vers un plan
-              individualisé quand l’apport du bébé est incertain.
-            </p>
-          </div>
-        </div>
-
-        <section className="mt-12 grid gap-8 md:mt-16 md:grid-cols-[0.7fr_1.3fr] md:gap-10">
-          <div>
-            <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
-              Évaluation ciblée
-            </p>
-
-            <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
-              Les informations qui changent vraiment l’analyse.
-            </h2>
-
-            <p className="mt-5 max-w-md font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-              Le transfert ne se juge pas seulement par la durée au sein. Il se
-              comprend avec le contexte, l’observation du boire, les sorties, le
-              poids et l’état général.
-            </p>
-          </div>
-
-          <div className="grid gap-3">
-            {evaluation.map((item) => (
-              <div
-                key={item}
-                className="rounded-[24px] border border-[#A58B71]/18 bg-[#F9F6F2] p-4 shadow-sm"
-              >
-                <div className="flex gap-3">
-                  <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-[#7A816C]" />
-                  <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-                    {item}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-12 rounded-[34px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm md:mt-16 md:rounded-[42px] md:p-8">
-          <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr] md:gap-10">
+          <section className="mt-12 grid gap-8 md:mt-16 md:grid-cols-[0.7fr_1.3fr] md:gap-10">
             <div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#7A816C]/12 md:h-12 md:w-12">
-                <CheckCircle className="h-5 w-5 text-[#7A816C] md:h-6 md:w-6" />
-              </div>
-
-              <p className="mt-5 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#7A816C]">
-                Indices favorables
+              <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
+                Évaluation ciblée
               </p>
 
-              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
-                Ce qui peut suggérer un transfert efficace.
+              <h2 className="mt-3 font-[var(--font-title)] text-[2.35rem] font-semibold leading-tight md:text-5xl">
+                Les informations qui changent vraiment l’analyse.
               </h2>
+
+              <p className="mt-4 max-w-md font-[var(--font-body)] text-sm leading-7 text-[#5E5A52] md:mt-5">
+                Le transfert ne se juge pas seulement par la durée au sein. Il se
+                comprend avec le contexte, l’observation du boire, les sorties,
+                le poids et l’état général.
+              </p>
             </div>
 
             <div className="grid gap-3">
-              {indicateursEfficaces.map((item) => (
+              {evaluation.map((item) => (
                 <div
                   key={item}
-                  className="rounded-[24px] border border-[#D1A9A5]/28 bg-[#FBF8F3] p-4"
+                  className="rounded-[24px] border border-[#A58B71]/18 bg-[#F9F6F2] p-4 shadow-sm"
                 >
-                  <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-                    {item}
-                  </p>
+                  <div className="flex gap-3">
+                    <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-[#7A816C]" />
+
+                    <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                      {item}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="mt-12 grid gap-8 md:mt-16 md:grid-cols-[0.7fr_1.3fr] md:gap-10">
-          <div>
-            <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
-              Raisonnement clinique
+          <section className="mt-12 rounded-[30px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm md:mt-16 md:rounded-[42px] md:p-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr] md:gap-10">
+              <div>
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#7A816C]/12 md:h-12 md:w-12">
+                  <CheckCircle className="h-5 w-5 text-[#7A816C] md:h-6 md:w-6" />
+                </div>
+
+                <p className="mt-5 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#7A816C]">
+                  Indices favorables
+                </p>
+
+                <h2 className="mt-3 font-[var(--font-title)] text-[2.35rem] font-semibold leading-tight md:text-5xl">
+                  Ce qui peut suggérer un transfert efficace.
+                </h2>
+              </div>
+
+              <div className="grid gap-3">
+                {indicateursEfficaces.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[24px] border border-[#D1A9A5]/28 bg-[#FBF8F3] p-4"
+                  >
+                    <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-12 grid gap-8 md:mt-16 md:grid-cols-[0.7fr_1.3fr] md:gap-10">
+            <div>
+              <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#AE6965]">
+                Raisonnement clinique
+              </p>
+
+              <h2 className="mt-3 font-[var(--font-title)] text-[2.35rem] font-semibold leading-tight md:text-5xl">
+                Une démarche simple pour évaluer et orienter.
+              </h2>
+            </div>
+
+            <div className="grid gap-4">
+              {principes.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.title}
+                    className="rounded-[26px] border border-[#A58B71]/18 bg-[#F9F6F2] p-4 shadow-sm md:rounded-[28px] md:p-6"
+                  >
+                    <div className="grid grid-cols-[40px_1fr] items-start gap-3 md:grid-cols-[46px_1fr] md:gap-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#7A816C]/12 md:h-11 md:w-11">
+                        <Icon className="h-5 w-5 text-[#7A816C]" />
+                      </div>
+
+                      <div className="min-w-0">
+                        <h3 className="font-[var(--font-title)] text-[1.65rem] font-semibold leading-tight text-[#2F2A26] md:text-2xl">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-2 font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                          {item.text}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          <section className="mt-12 rounded-[30px] bg-[#7A816C] p-5 text-white shadow-sm md:mt-16 md:rounded-[42px] md:p-8">
+            <div className="grid gap-7 md:grid-cols-[0.75fr_1.25fr] md:gap-8">
+              <div>
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/14 md:h-12 md:w-12">
+                  <ShieldAlert className="h-5 w-5 text-white md:h-6 md:w-6" />
+                </div>
+
+                <p className="mt-5 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-white/70">
+                  Orientation rapide
+                </p>
+
+                <h2 className="mt-3 font-[var(--font-title)] text-[2.35rem] font-semibold leading-tight md:text-5xl">
+                  Prioriser l’apport et l’état général du bébé.
+                </h2>
+              </div>
+
+              <div className="grid gap-3">
+                {redFlags.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[24px] border border-white/12 bg-white/10 p-4"
+                  >
+                    <p className="font-[var(--font-body)] text-sm leading-7 text-white/88">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2">
+            <div className="rounded-[30px] border border-[#D1A9A5]/30 bg-[#D1A9A5]/35 p-5 md:rounded-[42px] md:p-8">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F9F6F2]/70">
+                <ShieldAlert className="h-5 w-5 text-[#AE6965]" />
+              </div>
+
+              <h2 className="mt-5 font-[var(--font-title)] text-[2.35rem] font-semibold leading-tight text-[#2F2A26] md:text-5xl">
+                À éviter
+              </h2>
+
+              <div className="mt-5 grid gap-3">
+                {aEviter.map((item) => (
+                  <div key={item} className="flex gap-3">
+                    <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#AE6965]" />
+
+                    <p className="font-[var(--font-body)] text-sm leading-7 text-[#4F4943]">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[30px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm md:rounded-[42px] md:p-8">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#A58B71]/12">
+                <LifeBuoy className="h-5 w-5 text-[#A58B71]" />
+              </div>
+
+              <h2 className="mt-5 font-[var(--font-title)] text-[2.35rem] font-semibold leading-tight md:text-5xl">
+                Questions utiles au suivi
+              </h2>
+
+              <div className="mt-5 grid gap-3">
+                {questions.map((question) => (
+                  <div key={question} className="flex gap-3">
+                    <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#A58B71]" />
+
+                    <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                      {question}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-12 rounded-[30px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm md:mt-16 md:rounded-[42px] md:p-8">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#D1A9A5]/22 md:h-12 md:w-12">
+              <Milk className="h-5 w-5 text-[#AE6965] md:h-6 md:w-6" />
+            </div>
+
+            <h2 className="mt-5 font-[var(--font-title)] text-[2.35rem] font-semibold leading-tight md:text-5xl">
+              Ce qu’on cherche à protéger
+            </h2>
+
+            <p className="mt-4 max-w-3xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+              Le but n’est pas seulement de “corriger la prise”. C’est de
+              s’assurer que bébé reçoit assez de lait, que la production est
+              protégée si le transfert est insuffisant, et que la mère reçoit un
+              plan réaliste plutôt qu’une simple consigne de persévérer.
             </p>
 
-            <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
-              Une démarche simple pour évaluer et orienter.
-            </h2>
-          </div>
+            <Link
+              href="/ressources/professionnelles/supplementation"
+              className="relative z-10 mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-4 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C] sm:w-fit"
+            >
+              Lire aussi : supplémentation
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </section>
 
-          <div className="grid gap-4">
-            {principes.map((item) => {
-              const Icon = item.icon;
+          <section className="mt-12 md:mt-16">
+            <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#A58B71]">
+              Sources professionnelles
+            </p>
 
-              return (
-                <div
-                  key={item.title}
-                  className="rounded-[28px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm md:p-6"
+            <div className="mt-5 grid gap-4">
+              {sources.map((source) => (
+                <Link
+                  key={source.title}
+                  href={source.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-[26px] border border-[#A58B71]/18 bg-[#F9F6F2] p-4 shadow-sm transition hover:border-[#AE6965]/35 md:rounded-[28px] md:p-6"
                 >
-                  <div className="grid grid-cols-[42px_1fr] items-start gap-3 md:grid-cols-[46px_1fr] md:gap-4">
+                  <div className="grid grid-cols-[40px_1fr_auto] items-start gap-3 md:grid-cols-[46px_1fr_auto] md:gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#7A816C]/12 md:h-11 md:w-11">
-                      <Icon className="h-5 w-5 text-[#7A816C]" />
+                      <BookOpen className="h-5 w-5 text-[#7A816C]" />
                     </div>
 
                     <div className="min-w-0">
-                      <h3 className="font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26]">
-                        {item.title}
+                      <h3 className="font-[var(--font-title)] text-[1.55rem] font-semibold leading-tight md:text-2xl">
+                        {source.title}
                       </h3>
 
-                      <p className="mt-2 font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-                        {item.text}
+                      <p className="mt-2 max-w-3xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                        {source.description}
                       </p>
                     </div>
+
+                    <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-[#A58B71] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+                </Link>
+              ))}
+            </div>
+          </section>
 
-        <section className="mt-12 rounded-[34px] bg-[#7A816C] p-5 text-white shadow-sm md:mt-16 md:rounded-[42px] md:p-8">
-          <div className="grid gap-7 md:grid-cols-[0.75fr_1.25fr] md:gap-8">
-            <div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/14 md:h-12 md:w-12">
-                <ShieldAlert className="h-5 w-5 text-white md:h-6 md:w-6" />
-              </div>
+          <div className="mt-10 rounded-[28px] border border-[#A58B71]/20 bg-[#F9F6F2]/60 p-5 md:mt-12">
+            <div className="flex items-start gap-3">
+              <HeartPulse className="mt-1 h-5 w-5 shrink-0 text-[#AE6965]" />
 
-              <p className="mt-5 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-white/70">
-                Orientation rapide
+              <p className="max-w-4xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
+                Important : cette page est éducative et destinée à soutenir le
+                raisonnement clinique. Elle ne remplace pas une évaluation, un
+                protocole local, une ordonnance collective, ni le jugement
+                professionnel. Si l’apport du bébé est incertain, prioriser une
+                évaluation rapide.
               </p>
-
-              <h2 className="mt-3 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
-                Prioriser l’apport et l’état général du bébé.
-              </h2>
             </div>
-
-            <div className="grid gap-3">
-              {redFlags.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-[24px] border border-white/12 bg-white/10 p-4"
-                >
-                  <p className="font-[var(--font-body)] text-sm leading-7 text-white/88">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2">
-          <div className="rounded-[34px] border border-[#D1A9A5]/30 bg-[#D1A9A5]/35 p-5 md:rounded-[42px] md:p-8">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#F9F6F2]/70">
-              <ShieldAlert className="h-5 w-5 text-[#AE6965]" />
-            </div>
-
-            <h2 className="mt-5 font-[var(--font-title)] text-4xl font-semibold leading-tight text-[#2F2A26] md:text-5xl">
-              À éviter
-            </h2>
-
-            <div className="mt-5 grid gap-3">
-              {aEviter.map((item) => (
-                <div key={item} className="flex gap-3">
-                  <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#AE6965]" />
-                  <p className="font-[var(--font-body)] text-sm leading-7 text-[#4F4943]">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[34px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm md:rounded-[42px] md:p-8">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#A58B71]/12">
-              <LifeBuoy className="h-5 w-5 text-[#A58B71]" />
-            </div>
-
-            <h2 className="mt-5 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
-              Questions utiles au suivi
-            </h2>
-
-            <div className="mt-5 grid gap-3">
-              {questions.map((question) => (
-                <div key={question} className="flex gap-3">
-                  <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#A58B71]" />
-                  <p className="font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-                    {question}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-12 rounded-[34px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm md:mt-16 md:rounded-[42px] md:p-8">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#D1A9A5]/22 md:h-12 md:w-12">
-            <Milk className="h-5 w-5 text-[#AE6965] md:h-6 md:w-6" />
-          </div>
-
-          <h2 className="mt-5 font-[var(--font-title)] text-4xl font-semibold leading-tight md:text-5xl">
-            Ce qu’on cherche à protéger
-          </h2>
-
-          <p className="mt-4 max-w-3xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-            Le but n’est pas seulement de “corriger la prise”. C’est de
-            s’assurer que bébé reçoit assez de lait, que la production est
-            protégée si le transfert est insuffisant, et que la mère reçoit un
-            plan réaliste plutôt qu’une simple consigne de persévérer.
-          </p>
-
-          <Link
-            href="/ressources/professionnelles/supplementation"
-            className="relative z-10 mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#7A816C] px-5 py-4 font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:bg-[#68705C] sm:w-fit"
-          >
-            Lire aussi : supplémentation
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </section>
-
-        <section className="mt-12 md:mt-16">
-          <p className="font-[var(--font-body)] text-xs font-bold uppercase tracking-[0.22em] text-[#A58B71]">
-            Sources professionnelles
-          </p>
-
-          <div className="mt-5 grid gap-4">
-            {sources.map((source) => (
-              <Link
-                key={source.title}
-                href={source.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block rounded-[28px] border border-[#A58B71]/18 bg-[#F9F6F2] p-5 shadow-sm transition hover:border-[#AE6965]/35 md:p-6"
-              >
-                <div className="grid grid-cols-[42px_1fr_auto] items-start gap-3 md:grid-cols-[46px_1fr_auto] md:gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#7A816C]/12 md:h-11 md:w-11">
-                    <BookOpen className="h-5 w-5 text-[#7A816C]" />
-                  </div>
-
-                  <div className="min-w-0">
-                    <h3 className="font-[var(--font-title)] text-2xl font-semibold leading-tight">
-                      {source.title}
-                    </h3>
-
-                    <p className="mt-2 max-w-3xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-                      {source.description}
-                    </p>
-                  </div>
-
-                  <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-[#A58B71] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <div className="mt-10 border-t border-[#A58B71]/25 pt-6 md:mt-12">
-          <div className="flex items-start gap-3">
-            <HeartPulse className="mt-1 h-5 w-5 shrink-0 text-[#AE6965]" />
-
-            <p className="max-w-4xl font-[var(--font-body)] text-sm leading-7 text-[#5E5A52]">
-              Important : cette page est éducative et destinée à soutenir le
-              raisonnement clinique. Elle ne remplace pas une évaluation, un
-              protocole local, une ordonnance collective, ni le jugement
-              professionnel. Si l’apport du bébé est incertain, prioriser une
-              évaluation rapide.
-            </p>
           </div>
         </div>
       </section>
