@@ -17,7 +17,7 @@ export default function AccueilPage() {
     <main className="min-h-screen overflow-hidden bg-[#EDE6DA] text-[#2F2A26]">
       {/* HERO */}
       <section className="relative mx-auto max-w-7xl px-5 pb-12 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-12">
-        <div className="relative isolate overflow-hidden rounded-[34px] bg-[#FFF9F2]/60 px-4 pb-7 pt-5 shadow-sm sm:px-8 lg:px-10 lg:py-12">
+        <div className="relative grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           {/* HALOS */}
           <div className="pointer-events-none absolute right-[-120px] top-20 h-[520px] w-[520px] rounded-full bg-[#E6B5A8]/35 blur-[120px]" />
           <div className="pointer-events-none absolute right-20 bottom-10 h-[280px] w-[280px] rounded-full bg-white/50 blur-[90px]" />
@@ -57,9 +57,7 @@ export default function AccueilPage() {
     </div>
   </div>
 </div>
-          {/* VOILE POUR LIRE LE TEXTE */}
-<div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#FFF9F2] via-[#FFF9F2]/96 to-[#FFF9F2]/75 sm:via-[#FFF9F2]/82 sm:to-[#FFF9F2]/30 lg:via-[#FFF9F2]/55 lg:to-transparent" />
-          {/* CONTENU */}
+
           <div className="relative z-10 max-w-[650px]">
             <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#D1A9A5]/40 bg-[#FFF9F2]/85 px-4 py-2.5 font-[var(--font-body)] shadow-sm backdrop-blur">
               <Moon className="h-4 w-4 shrink-0 text-[#AE6965]" />
