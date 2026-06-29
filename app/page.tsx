@@ -22,15 +22,39 @@ export default function AccueilPage() {
           <div className="pointer-events-none absolute right-[-120px] top-20 h-[520px] w-[520px] rounded-full bg-[#E6B5A8]/35 blur-[120px]" />
           <div className="pointer-events-none absolute right-20 bottom-10 h-[280px] w-[280px] rounded-full bg-white/50 blur-[90px]" />
 
-         {/* IMAGE EN BACKGROUND */}
-<div className="pointer-events-none absolute bottom-0 right-[-95px] z-0 h-[48%] w-[72%] sm:right-[-60px] sm:h-[70%] sm:w-[54%] lg:right-[-10px] lg:h-[92%] lg:w-[45%]">
+         {/* IMAGE */}
+<div
+  className="
+    pointer-events-none
+    absolute
+    bottom-0
+    right-[-140px]
+
+    h-[260px]
+    w-[260px]
+
+    sm:right-[-80px]
+    sm:h-[360px]
+    sm:w-[360px]
+
+    lg:right-0
+    lg:h-[88%]
+    lg:w-[46%]
+  "
+>
   <Image
     src="/hero-maman-allaitement.png"
     alt=""
     fill
     priority
-    sizes="(max-width: 640px) 72vw, (max-width: 1024px) 54vw, 45vw"
-    className="object-contain object-right-bottom opacity-55 sm:opacity-80 lg:opacity-100"
+    className="
+      object-contain
+      object-right-bottom
+
+      opacity-20
+      sm:opacity-35
+      lg:opacity-100
+    "
   />
 </div>
           {/* VOILE POUR LIRE LE TEXTE */}
