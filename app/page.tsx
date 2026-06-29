@@ -22,21 +22,19 @@ export default function AccueilPage() {
           <div className="pointer-events-none absolute right-[-120px] top-20 h-[520px] w-[520px] rounded-full bg-[#E6B5A8]/35 blur-[120px]" />
           <div className="pointer-events-none absolute right-20 bottom-10 h-[280px] w-[280px] rounded-full bg-white/50 blur-[90px]" />
 
-          {/* IMAGE EN BACKGROUND */}
-          <div className="pointer-events-none absolute bottom-0 right-[-70px] z-0 h-[64%] w-[78%] sm:right-[-40px] sm:h-[82%] sm:w-[58%] lg:right-[-10px] lg:h-[95%] lg:w-[45%]">
-            <Image
-              src="/hero-maman-allaitement.png"
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 640px) 78vw, (max-width: 1024px) 58vw, 45vw"
-              className="object-contain object-right-bottom opacity-80 sm:opacity-90 lg:opacity-100"
-            />
-          </div>
-
+         {/* IMAGE EN BACKGROUND */}
+<div className="pointer-events-none absolute bottom-0 right-[-95px] z-0 h-[48%] w-[72%] sm:right-[-60px] sm:h-[70%] sm:w-[54%] lg:right-[-10px] lg:h-[92%] lg:w-[45%]">
+  <Image
+    src="/hero-maman-allaitement.png"
+    alt=""
+    fill
+    priority
+    sizes="(max-width: 640px) 72vw, (max-width: 1024px) 54vw, 45vw"
+    className="object-contain object-right-bottom opacity-55 sm:opacity-80 lg:opacity-100"
+  />
+</div>
           {/* VOILE POUR LIRE LE TEXTE */}
-          <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#FFF9F2] via-[#FFF9F2]/92 to-[#FFF9F2]/45 sm:via-[#FFF9F2]/78 sm:to-[#FFF9F2]/20 lg:via-[#FFF9F2]/55 lg:to-transparent" />
-
+<div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#FFF9F2] via-[#FFF9F2]/96 to-[#FFF9F2]/75 sm:via-[#FFF9F2]/82 sm:to-[#FFF9F2]/30 lg:via-[#FFF9F2]/55 lg:to-transparent" />
           {/* CONTENU */}
           <div className="relative z-10 max-w-[650px]">
             <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#D1A9A5]/40 bg-[#FFF9F2]/85 px-4 py-2.5 font-[var(--font-body)] shadow-sm backdrop-blur">
