@@ -23,39 +23,39 @@ export default function AccueilPage() {
           <div className="pointer-events-none absolute right-20 bottom-10 h-[280px] w-[280px] rounded-full bg-white/50 blur-[90px]" />
 
          {/* IMAGE */}
-<div
-  className="
-    pointer-events-none
-    absolute
-    bottom-0
-    right-[-140px]
+<div className="order-2">
+  <div className="relative rounded-[34px] border border-[#D1A9A5]/35 bg-[#FFF9F2]/70 p-2 shadow-xl shadow-[#7A816C]/10 sm:rounded-[42px] sm:p-3">
+    <div className="relative overflow-hidden rounded-[28px] sm:rounded-[34px]">
+      <Image
+        src="/hero-maman-plage.png"
+        alt="Maman avec son bébé sur la plage"
+        width={900}
+        height={1100}
+        priority
+        className="h-[360px] w-full object-cover object-bottom sm:h-[500px] lg:h-[620px]"
+      />
 
-    h-[260px]
-    w-[260px]
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#2F2A26]/45 via-[#2F2A26]/10 to-transparent" />
+    </div>
 
-    sm:right-[-80px]
-    sm:h-[360px]
-    sm:w-[360px]
+    <div className="absolute left-5 right-5 top-5 rounded-[24px] bg-[#FFF9F2]/95 p-4 shadow-lg shadow-[#2F2A26]/10 backdrop-blur sm:left-7 sm:right-auto sm:top-7 sm:max-w-[18rem] sm:rounded-[28px] sm:p-5">
+      <p className="font-[var(--font-body)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#AE6965] sm:text-xs">
+        Repère Maman
+      </p>
 
-    lg:right-0
-    lg:h-[88%]
-    lg:w-[46%]
-  "
->
-  <Image
-    src="/hero-maman-allaitement.png"
-    alt=""
-    fill
-    priority
-    className="
-      object-contain
-      object-right-bottom
+      <p className="mt-2 font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26] sm:text-3xl">
+        Un guide doux quand tu doutes.
+      </p>
 
-      opacity-20
-      sm:opacity-35
-      lg:opacity-100
-    "
-  />
+      <p className="mt-2 font-[var(--font-body)] text-sm leading-6 text-[#5E5A52]">
+        Des repères simples, sans jugement, pour te sentir moins seule.
+      </p>
+    </div>
+
+    <div className="absolute -right-3 -top-3 flex h-16 w-16 items-center justify-center rounded-full bg-[#D1A9A5] shadow-lg sm:h-20 sm:w-20">
+      <Sparkles className="h-7 w-7 text-white sm:h-8 sm:w-8" />
+    </div>
+  </div>
 </div>
           {/* VOILE POUR LIRE LE TEXTE */}
 <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#FFF9F2] via-[#FFF9F2]/96 to-[#FFF9F2]/75 sm:via-[#FFF9F2]/82 sm:to-[#FFF9F2]/30 lg:via-[#FFF9F2]/55 lg:to-transparent" />
@@ -64,7 +64,7 @@ export default function AccueilPage() {
             <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#D1A9A5]/40 bg-[#FFF9F2]/85 px-4 py-2.5 font-[var(--font-body)] shadow-sm backdrop-blur">
               <Moon className="h-4 w-4 shrink-0 text-[#AE6965]" />
               <p className="text-xs font-extrabold leading-5 text-[#7A816C] sm:text-sm">
-                Ton petit repère allaitement, même à 3 h du matin.
+                Ton repère allaitement, même à 3 h du matin.
               </p>
             </div>
 
