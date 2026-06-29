@@ -83,7 +83,7 @@ export default function AccueilPage() {
             </div>
           </div>
 
-          {/* IMAGE */}
+                    {/* IMAGE */}
           <div className="order-2">
             <div className="relative rounded-[34px] border border-[#D1A9A5]/35 bg-[#FFF9F2]/70 p-2 shadow-xl shadow-[#7A816C]/10 sm:rounded-[42px] sm:p-3">
               <div className="relative overflow-hidden rounded-[28px] sm:rounded-[34px]">
@@ -93,24 +93,23 @@ export default function AccueilPage() {
                   width={900}
                   height={1100}
                   priority
-                  className="h-[340px] w-full object-cover object-[center_35%] sm:h-[460px] lg:h-[640px]"
+                  className="h-[360px] w-full object-cover object-bottom sm:h-[500px] lg:h-[620px]"
                 />
 
-                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#2F2A26]/45 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#2F2A26]/50 via-[#2F2A26]/15 to-transparent" />
               </div>
 
-              {/* Badge mobile-friendly, plus bas et moins envahissant */}
-              <div className="absolute bottom-5 left-5 right-5 rounded-[24px] bg-[#FFF9F2]/95 p-4 shadow-lg shadow-[#2F2A26]/10 backdrop-blur sm:left-7 sm:right-auto sm:max-w-[18rem] sm:rounded-[28px] sm:p-5">
+              <div className="absolute left-5 right-5 top-5 rounded-[24px] bg-[#FFF9F2]/95 p-4 shadow-lg shadow-[#2F2A26]/10 backdrop-blur sm:left-7 sm:right-auto sm:top-7 sm:max-w-[18rem] sm:rounded-[28px] sm:p-5">
                 <p className="font-[var(--font-body)] text-[10px] font-bold uppercase tracking-[0.2em] text-[#AE6965] sm:text-xs">
                   Repère Maman
                 </p>
 
                 <p className="mt-2 font-[var(--font-title)] text-2xl font-semibold leading-tight text-[#2F2A26] sm:text-3xl">
-                  Un espace pour revenir au calme.
+                  Un petit guide doux quand tu doutes.
                 </p>
 
                 <p className="mt-2 font-[var(--font-body)] text-sm leading-6 text-[#5E5A52]">
-                  Quand tu doutes, tu n’as pas à tout porter seule.
+                  Des repères simples, sans jugement, pour te sentir moins seule.
                 </p>
               </div>
 
